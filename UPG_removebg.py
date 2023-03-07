@@ -9,7 +9,7 @@ st.set_page_config(layout="wide", page_title="UPG background remover")
 st.write("## UPG Remove Background")
 st.write("*Builth with :heart: by [Ferlan Ferlani](http://ferlanferlani.rf.gd)*")
 st.write(
-    "Hallo teman teman selamat datang! ini adalah aplikasi webiste yang dapat teman teman gunakan untuk melakukan hapus pada background gambar berupa foto, logo dll.")
+    "Hallo teman teman selamat datang! ini adalah aplikasi web yang dapat teman teman gunakan untuk melakukan hapus pada background gambar berupa foto, logo dll.")
 st.write(
     "Caranya cukup mudah teman teman tinggal upload gambar yang ingin teman teman hapus backgroundnya lihat ke arah sidebar klik 'Browse Files', tunggu prosesnya sampai selesai dan untuk mendownload hasilnya teman teman bisa langsung klik 'Download Result'"
 )
