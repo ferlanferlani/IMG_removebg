@@ -1,12 +1,13 @@
 import streamlit as st
 from rembg import remove
 from PIL import Image
+import time
 from io import BytesIO
 import base64
 
-st.set_page_config(layout="wide", page_title="UPG background image remover")
+st.set_page_config(layout="wide", page_title="Background Image Remover")
 
-st.write("## UPG Remove Background")
+st.write("## IMG Remove Background")
 st.write("*Builth with :heart: by [Ferlan Ferlani](http://ferlanferlani.rf.gd)*")
 st.write(
     "Hallo teman teman selamat datang! ini adalah aplikasi web yang dapat teman teman gunakan untuk melakukan hapus pada background gambar berupa foto, logo dll.")
@@ -16,7 +17,7 @@ st.write(
 st.write("Selamat mecoba:grin:")
 st.sidebar.write("## Upload dan download :gear:")
 
-# Download the fixed image
+# Download the fixed image1
 def convert_image(img):
     buf = BytesIO()
     img.save(buf, format="PNG")
@@ -28,17 +29,22 @@ def fix_image(upload):
     image = Image.open(upload)
     col1.write("Gambar Original :camera:")
     col1.image(image)
-
+    
+    # alert process delay
+    with st.spinner(text="processing remove background") :
+        time.sleep(25)
+        
     fixed = remove(image)
     col2.write("Hasil Remove Background :wrench:")
     col2.image(fixed)
     st.sidebar.markdown("\n")
+    
+        
     st.sidebar.download_button("Download Result", convert_image(fixed), "UPG_removebg.png", "image/png")
-
+    
 
 col1, col2 = st.columns(2)
 my_upload = st.sidebar.file_uploader("Upload Gambar", type=["png", "jpg", "jpeg"])
-
 
 if my_upload is not None:
     fix_image(upload=my_upload)
