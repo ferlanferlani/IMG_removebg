@@ -12,10 +12,9 @@ st.write("*Develop by [Ferlan Ferlani](http://ferlanferlani.rf.gd)*")
 st.write(
     "Hallo teman teman selamat datang! ini adalah aplikasi web yang dapat teman teman gunakan untuk melakukan hapus background pada gambar berupa foto, logo dll.")
 st.write(
-    "Caranya cukup mudah teman teman tinggal upload gambar yang ingin teman teman hapus backgroundnya lihat ke arah sidebar klik 'Browse Files' tunggu prosesnya hingga selesai dan untuk mendownload hasilnya teman teman bisa langsung klik 'Download Result'"
+    "Caranya cukup mudah teman teman tinggal upload gambar yang ingin teman teman hapus backgroundnya klik 'Browse Files' tunggu prosesnya hingga selesai dan untuk mendownload hasilnya teman teman bisa langsung klik 'Download Result'"
 )
 st.write("Selamat mecoba:grin:")
-st.sidebar.write("## Upload dan download :gear:")
 
 # Download the fixed image1
 def convert_image(img):
@@ -32,19 +31,25 @@ def fix_image(upload):
     
     # alert process delay
     with st.spinner(text="processing remove background") :
-        time.sleep(25)
+        time.sleep(50)
         
     fixed = remove(image)
     col2.write("Hasil Remove Background")
     col2.image(fixed)
-    st.sidebar.markdown("\n")
+    
+    # alert remove background success
+    st.balloons()
+    st.success("Remove Background Success")
+    
+    st.markdown("\n")
     
         
-    st.sidebar.download_button("Download Result", convert_image(fixed), "IMG_bgremover.png", "image/png")
+    st.download_button("Download Result", convert_image(fixed), "IMG_bgremover.png", "image/png")
     
 
 col1, col2 = st.columns(2)
-my_upload = st.sidebar.file_uploader("Upload Gambar", type=["png", "jpg", "jpeg"])
+st.markdown("\n")
+my_upload = st.file_uploader("Upload Gambar", type=["png", "jpg", "jpeg"])
 
 if my_upload is not None:
     fix_image(upload=my_upload)
