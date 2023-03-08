@@ -4,7 +4,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-st.set_page_config(layout="wide", page_title="UPG background remover")
+st.set_page_config(layout="wide", page_title="UPG background image remover")
 
 st.write("## UPG Remove Background")
 st.write("*Builth with :heart: by [Ferlan Ferlani](http://ferlanferlani.rf.gd)*")
